@@ -1,0 +1,2 @@
+v0.1, 13 December 2016 -- Initial Release
+v0.3, 17 January 2017 -- Support for Django Settings
