@@ -1,5 +1,5 @@
 #!/usr/bin/env python
 
-from automatedscreenshots.builder import Builder
-from automatedscreenshots.client import Client
+from django_screenshots.builder import Builder
+from django_screenshots.client import Client
 
