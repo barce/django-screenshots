@@ -7,6 +7,7 @@ set values for using environment variables:
     export SCREENSHOT_USER=''
     export SCREENSHOT_PASSWORD=''
     export SCREENSHOT_SERVER_URL=''
+    export SCREENSHOT_FORCE_ENV='1'
 
 
 set values for using django settings: 
