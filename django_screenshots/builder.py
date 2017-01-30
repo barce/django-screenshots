@@ -22,6 +22,9 @@ try:
 except ImportError:
     use_environment_variables = True
 
+if os.environ['SCREENSHOT_FORCE_ENV'] == '1':
+    use_environment_variables = True
+
 class Builder:
     user = None
     password = None
