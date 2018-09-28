@@ -5,6 +5,11 @@ django-screenshots
 DM me on github, or @barce on twitter, if
 you want to see a working demo.
 
+installation
+===========================================
+    pip install django-screenshots
+    pip install requests
+
 set values for using environment variables: 
 ===========================================
     export SCREENSHOT_USER=''
