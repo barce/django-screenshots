@@ -91,3 +91,5 @@ ENV/
 # ignore tilde files made by emacs
 *~
 
+# ignore vim swap files
+*.sw*
