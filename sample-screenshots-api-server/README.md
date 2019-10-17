@@ -12,4 +12,7 @@ cd $DJANGO_APP_DIR; uwsgi --ini apis_uwsgi.ini
 rq-dashboard
 cd $DJANGO_APP_DIR; python manage.py rqworker screenshots
 
+# /scripts
+contains a sample scripts
 
+seleniume-screenshot.py - serverless screenshot script that uses selenium
