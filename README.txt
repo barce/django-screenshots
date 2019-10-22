@@ -44,8 +44,19 @@ Search for a URL:
     b = Builder('http://www.google.com/')
     print(b.search())
 
-IPFS local use:
-===============
+IPFS local use and p2p storage:
+===============================
+
+1) https://github.com/mozilla/geckodriver/releases
+2) download the latest for your OS, e.g. geckodriver-v0.26.0-macos.tar.gz
+3) tar zxvf geckodriver-v0.26.0-macos.tar.gz
+4) mv geckodriver /usr/local/bin/.
+5) pip3 install selenium
+6) brew install ipfs # mac os, or
+6a) sudo apt-get install ipfs # linux
+7) pip3 install ipfshttpclient
+8) ipfs daemon
+9) Use this code to try it out:
     from django_screenshots import ScreenShotIpfs
     import ipfshttpclient
     b = ScreenShotIpfs('https://www.reddit.com/')

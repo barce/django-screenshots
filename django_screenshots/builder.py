@@ -22,8 +22,11 @@ try:
 except ImportError:
     use_environment_variables = True
 
-if os.environ['SCREENSHOT_FORCE_ENV'] == '1':
-    use_environment_variables = True
+try:
+    if os.environ['SCREENSHOT_FORCE_ENV'] == '1':
+        use_environment_variables = True
+except:
+    print("No os.environ vars set. See env_vars.bash")
 
 class Builder:
     user = None

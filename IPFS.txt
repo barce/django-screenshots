@@ -5,5 +5,5 @@
 5) pip3 install selenium
 6) brew install ipfs # mac os, or 
 6a) sudo apt-get install ipfs # linux
-7) pip3 install ipfsapi
-
+7) pip3 install ipfshttpclient
+8) ipfs daemon

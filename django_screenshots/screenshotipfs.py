@@ -29,9 +29,6 @@ try:
 except ImportError:
     use_environment_variables = True
 
-if os.environ['SCREENSHOT_FORCE_ENV'] == '1':
-    use_environment_variables = True
-
 class ScreenShotIpfs:
     def __init__(self, url):
         self.url = url
