@@ -44,6 +44,25 @@ Search for a URL:
     b = Builder('http://www.google.com/')
     print(b.search())
 
+IPFS local use:
+===============
+    from django_screenshots import ScreenShotIpfs
+    import ipfshttpclient
+    b = ScreenShotIpfs('https://www.reddit.com/')
+    b.image_directory = './tests'
+    b.capture()
+    client = ipfshttpclient.connect('/ip4/127.0.0.1/tcp/5001')
+    res = client.add('./tests/80bbf48dad9161583129da74239ab0bc.png')
+    res
+    {'Name': '80bbf48dad9161583129da74239ab0bc.png', 'Hash': 'QmSv9uFspQxjEKzCarAuKYH9ytcjEpYwULfyz2dXSfYHQU', 'Size': '2851134'}
+
+>>> some_string = client.cat('QmSv9uFspQxjEKzCarAuKYH9ytcjEpYwULfyz2dXSfYHQU')
+>>> with open("test.png", "wb") as file:
+...     file.write(some_string)
+... 
+2850443
+
+
 For developers:
 ===============
     How to upload to pypi:

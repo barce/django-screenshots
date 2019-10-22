@@ -20,6 +20,7 @@ from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.firefox.options import Options
 import hashlib
+import ipfshttpclient
 
 use_environment_variables = None
 
@@ -38,6 +39,9 @@ class ScreenShotIpfs:
         self.image_url = None
         self.image_directory = '/tmp'
         self.image_file = None
+        self.image_full_file_path = None
+        self.ipfs_local = '/ip4/127.0.0.1/tcp/5001'
+        self.ipfs_hash = None
 
     # This little function make screen size to maximum for better screenshot result
     def save_screenshot(self, driver, path):
@@ -63,10 +67,21 @@ class ScreenShotIpfs:
         m = hashlib.md5()
         m.update(self.url.encode('utf-8'))
         self.image_file = str(m.hexdigest()) + '.png'
-        out_path = self.image_directory + '/' + self.image_file
-        self.save_screenshot(driver, out_path)  # Saving the screenshot
+        self.image_full_file_path = self.image_directory + '/' + self.image_file
+        # Saving the screenshot
+        self.save_screenshot(driver, self.image_full_file_path) 
         driver.close()
 
     def upload(self):
-        awesome = 1 
+        client = ipfshttpclient.connect(self.ipfs_local)
+        res = client.add(self.image_full_file_path)
+        self.ipfs_hash = res['Hash']
+        client.close()
+        return self.ipfs_hash
 
+    def get(self,ipfs_hash,image_file):
+        client = ipfshttpclient.connect(self.ipfs_local)
+        some_string = client.cat(ipfs_hash)
+        with open(image_file, "wb") as file:
+            file.write(some_string)
+        client.close()

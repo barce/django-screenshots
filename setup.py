@@ -7,7 +7,7 @@ setup(
     author_email='barce@me.com',
     packages=['django_screenshots', 'django_screenshots.tests'],
     install_requires=[
-      'future',
+      'future', 'ipfshttpclient',
     ],
     scripts=[],
     url='http://pypi.python.org/pypi/django-screenshots/',
